@@ -9,28 +9,34 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
+
 
 
 @Entity
-//@Table(schema = "rma", name = "client_master")
+@Table(schema = "rma", name = "client_master")
 public class Destination {
 
 	@Id
+	@SequenceGenerator(initialValue = 1, name = "client_master_seq", allocationSize = 0)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_master_seq")
 	private Long id;
 	private String name;
 	private String description;
 	private String image;
 	private String category;
 	private String createby;
+	
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private Date createdt;
+	
 	private String modby;
+	
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private Date moddt;
+	
 	private Character activeflag;
 	
 	
