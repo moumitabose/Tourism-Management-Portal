@@ -12,5 +12,11 @@ public class LoginController {
 	{
 		return "STARTING PAGE";
 	}
-
+	
+	
+	@GetMapping("/welcome")
+	public String welcomeMessage()
+	{
+		return "WELCOME PAGE";
+	}
 }
